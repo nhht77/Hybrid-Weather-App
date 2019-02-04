@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Example from './components/Example';
+import axios from 'axios';
 
+let API = "c9ca3fdada77609e76fec6e849b11dd1";
 
 class App extends Component {
     constructor(props){
@@ -20,7 +22,13 @@ class App extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        console.log(this.state.weather);
+        let weather = this.state.weather
+        
+        console.log(weather);
+
+        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${weather}&APPID=c9ca3fdada77609e76fec6e849b11dd1`)
+        .then( function(res){ console.log(res.data)})
+        .catch( function(err){ console.log(err)})
     }
 
     onClick(){
