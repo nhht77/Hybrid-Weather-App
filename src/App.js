@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Example from './components/Example';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
-
-let API = "c9ca3fdada77609e76fec6e849b11dd1";
 
 class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            weather:null
+            weather:null,
+            temperature:null,
+            weathers:[]
         }
 
         this.onChange = this.onChange.bind(this);
@@ -22,22 +23,28 @@ class App extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        let weather = this.state.weather
-        
+        let weather = this.state.weather;
+
+
         console.log(weather);
 
-        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${weather}&APPID=c9ca3fdada77609e76fec6e849b11dd1`)
-        .then( function(res){ console.log(res.data)})
+        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${weather}&units=metric&APPID=c9ca3fdada77609e76fec6e849b11dd1`)
+        .then( function(res){ 
+            // this.setState({temperature:res.data.main.temp});
+            console.log(res.data);
+        })
         .catch( function(err){ console.log(err)})
     }
+    
 
-    onClick(){
-        console.log(this.state.weather)
+    onClick(e){
+        console.log(e.target.value)
     }
 
     render () {
         return (
             <div>
+                <h1>Weather App</h1>
                 <form onSubmit={this.onSubmit}>
                     <input
                         name="weather"
@@ -46,7 +53,11 @@ class App extends Component {
                     />
                     <button>Click me</button>
                 </form>
-                <p onClick={this.onClick}>{this.state.weather}</p>
+                <div onClick={this.onClick}>
+                    <p>{this.state.weather}</p>
+                    <span></span>
+                </div>
+                <p>{this.state.temperature}</p>
             </div>
         )
     }
