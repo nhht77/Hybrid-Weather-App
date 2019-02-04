@@ -24,3 +24,6 @@ module.exports = {
         ]
     }
 };
+
+//npx webpack --config webpack.config.js
+// http://api.openweathermap.org/data/2.5/weather?q=oulu,fi&APPID=c9ca3fdada77609e76fec6e849b11dd1
