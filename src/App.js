@@ -28,10 +28,12 @@ class App extends Component {
 
         console.log(weather);
 
+        let scope = this;
+
         axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${weather}&units=metric&APPID=c9ca3fdada77609e76fec6e849b11dd1`)
         .then( function(res){ 
-            // this.setState({temperature:res.data.main.temp});
             console.log(res.data);
+            scope.setState({temperature:res.data.main.temp});
         })
         .catch( function(err){ console.log(err)})
     }
