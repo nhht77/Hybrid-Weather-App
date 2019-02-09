@@ -1,66 +1,18 @@
 import React, { Component } from 'react';
-import Example from './components/Example';
+import Home from './components/Home/Home';
+import Info from './components/Info';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import axios from 'axios';
 
 class App extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            weather:null,
-            temperature:null,
-            weathers:[]
-        }
-
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onClick = this.onClick.bind(this);
-    }
-
-    onChange(e) {
-        this.setState({[e.target.name]: e.target.value});
-    }
-
-    onSubmit(e) {
-        e.preventDefault();
-        let weather = this.state.weather;
-
-
-        console.log(weather);
-
-        let scope = this;
-
-        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${weather}&units=metric&APPID=c9ca3fdada77609e76fec6e849b11dd1`)
-        .then( function(res){ 
-            console.log(res.data);
-            scope.setState({temperature:res.data.main.temp});
-        })
-        .catch( function(err){ console.log(err)})
-    }
     
-
-    onClick(e){
-        console.log(e.target.value)
-    }
-
     render () {
         return (
+        <Router>
             <div>
-                <h1>Weather App</h1>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        name="weather"
-                        value={this.weather}
-                        onChange={this.onChange}
-                    />
-                    <button>Click me</button>
-                </form>
-                <div onClick={this.onClick}>
-                    <p>{this.state.weather}</p>
-                    <span></span>
-                </div>
-                <p>{this.state.temperature}</p>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/info" component={Info}/>
             </div>
+        </Router>
         )
     }
 }

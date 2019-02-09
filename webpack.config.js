@@ -1,10 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
+    devtool: 'eval-source-map',
     entry: ['@babel/polyfill', './src/main.js'],
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'www/js')
+        filename: 'bundle.js',        
+        path: path.resolve(__dirname, 'public/js')        
     },
     mode: "development",
     watch: true,
@@ -12,17 +14,40 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]--[hash:base64:5]',
+                            importLoaders: 1
+                        }
+                    }
+                ]
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader"
+                  loader: "babel-loader"
                 }
             }
         ]
-    }
+    },
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
+    /*plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        hot: true,
+        port: 8000
+    }*/
 };
 
 //npx webpack --config webpack.config.js
