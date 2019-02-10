@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AutoComplete from "./AutoComplete";
-import ItemGroup  from './ItemGroup';
+import WeatherGroup  from './WeatherGroup';
 
 export class FirstView extends Component {
   render() {
@@ -13,7 +13,7 @@ export class FirstView extends Component {
         <AutoComplete addWeather={this.props.addWeather}/>
 
         <div className="container">
-            <ItemGroup weathers={this.props.weathers} onSave={this.props.onSave} />
+            <WeatherGroup weathers={this.props.weathers} onSave={this.props.onSave} />
         </div>
 
       </div>

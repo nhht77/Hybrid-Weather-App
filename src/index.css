@@ -184,7 +184,7 @@ body {
   
   .content-header h1{
     letter-spacing: 0.2rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 0;
   }
 
@@ -204,7 +204,7 @@ body {
 
  .content-body--top p{
    margin:0;
-   padding-left: 4rem;
+   padding-left: 3rem;
  }
 
  .content-body--bottom{

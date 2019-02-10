@@ -20,6 +20,7 @@ const customStyles = {
 };
 
 
+
 class SecondView extends Component {
   
 
@@ -30,25 +31,28 @@ class SecondView extends Component {
         return <i style={{color:"coral", fontSize: "4.3rem"}}className="far fa-sun"></i>
       }
       if(temp === 0 ){
-        return <i style={{color:"cadetblue", fontSize: "4.3rem"}} class="fas fa-cloud-sun"></i>
+        return <i style={{color:"cadetblue", fontSize: "4.3rem"}} className="fas fa-cloud-sun"></i>
       }
       else {
-        return <i style={{color:"cornflowerblue", fontSize: "4.3rem"}} class="fas fa-cloud"></i>
+        return <i style={{color:"cornflowerblue", fontSize: "4.3rem"}} className="fas fa-cloud"></i>
       }
     }
   }
 
-  render() {
+  onClick = name => {
+    this.props.addFavorite(name);
+  }
 
-        
+  render() {
+    const name = this.props.weather ? this.props.weather.name : null;
 
     return (
-      <ReactModal style={customStyles} isOpen={this.props.isOpen}>
+      <ReactModal ariaHideApp={false} style={customStyles} isOpen={this.props.isOpen}>
       
       <div className="content-header">
-        <button className="content-icon content-fav"><i class="far fa-star"></i></button>
+        <button onClick={this.onClick.bind(this, name)} className="content-icon content-fav"><i className="far fa-star"></i></button>
         <h1>{this.props.weather ? this.props.weather.name : null}</h1> 
-        <button className="content-icon content-close" onClick={this.props.onClose}><i class="far fa-times-circle"></i></button>
+        <button className="content-icon content-close" onClick={this.props.onClose}><i className="far fa-times-circle"></i></button>
       </div>
 
       <div className="content-body">

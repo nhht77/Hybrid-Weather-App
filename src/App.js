@@ -26,10 +26,13 @@ class App extends Component {
   }
   
   addFavorite = fav => {
-    const newState = {...this.state};
-    newState.favorite = [...newState.fav, fav];
-    this.setState(newState);
-    console.log(this.state);
+    if(fav){
+      const newState = {...this.state};
+      newState.favorite = [...newState.favorite, fav];
+      this.setState(newState);
+      console.log(this.state);
+      console.log(fav);
+    }
   }
 
   onSave = weather => {
@@ -49,10 +52,12 @@ class App extends Component {
         <FirstView onSave={this.onSave} 
                     addWeather={this.addWeather} 
                     weathers={this.state.weathers}
+                    favorite={this.state.favorite}
           />
         <SecondView isOpen={this.state.isOpen}
                     onClose={this.onClose}
                     weather={this.state.weather}
+                    addFavorite={this.addFavorite}
                     />
     </div>
     );
@@ -60,7 +65,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <ReactModal style={customStyles} isOpen={this.state.isOpen}>
-      // <h1>Weather Info</h1>
-    // </ReactModal>
