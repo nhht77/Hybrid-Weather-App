@@ -79,7 +79,7 @@ class AutoComplete extends Component {
         inputProps={inputProps}
         
       />
-        <button className="search-btn"><i className="fas fa-sun"></i></button>
+        <button className="search-btn"><i className="fas fa-search"></i></button>
       </form>
     );
   }

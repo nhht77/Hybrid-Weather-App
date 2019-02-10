@@ -19,7 +19,7 @@ export class Item extends Component {
     return (
     <button onClick={this.onClick.bind(this, w.name)} className="item" key={w.id}>  
         <div className="item-name">{w.name}</div>
-        <div className="item-temp">{w.main.temp} 'C</div>
+        <div className="item-temp">{w.main.temp} °C</div>
     </button>
     )
   }

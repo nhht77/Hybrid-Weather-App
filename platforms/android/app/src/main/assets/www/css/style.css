@@ -9,17 +9,10 @@ body {
      height:90vh;
  }
 
- #root >div{ 
-    height: 60vh;
- }
-
 .App{
-  justify-content: space-around;
   height: 100%;
   flex-direction: column;
   display: flex;
-  align-items: center;
-  align-content: space-around;
 }
 
 .App-header{
@@ -42,6 +35,7 @@ body {
 .container{
   width: 240px;
   align-self: center;
+  margin-top: 10rem;
 }
 
 .item {
@@ -102,12 +96,14 @@ body {
 
  .react-autosuggest__container{
   position: absolute;
+  top: 25%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background: #2f3640;
   height: 40px;
   border-radius: 40px;
   padding: 10px;
-  z-index: 5;
+  /* z-index: 5; */
  }
 
  .react-autosuggest__input{
@@ -145,6 +141,85 @@ body {
  .react-autosuggest__suggestions-list>li:hover{
       background:black;
       color:  white;
+ }
+
+ /* .content{
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+ } */
+
+ .content-icon{
+  align-self: center;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: transparent;
+  padding: .5rem;
+  background: transparent;
+  transition: all .2s;
+  outline: none;
+ }
+
+ .content-icon:hover{
+   background: rgba(128,128,128,.2);
+ }
+
+ .content-fav{
+    margin-left: -25px;
+ }
+
+ .content-close{
+  margin-right: -25px;
+ }
+
+ .content-header{
+   display: flex;
+   justify-content: space-around;
+   align-content: flex-start;
+   width: 100%;
+  }
+  
+  .content-header h1{
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+ .content-body{
+  margin-top: .5rem;
+  display: flex;
+  flex-direction: column;
+ }
+ 
+ .content-body--top{
+  margin: 1rem 0 0;
+  font-size: 3.5rem;
+  font-weight: 600;
+  justify-content: space-around;
+  display: flex;
+ }
+
+ .content-body--top p{
+   margin:0;
+   padding-left: 3rem;
+ }
+
+ .content-body--bottom{
+  align-self: center;
+  margin-top: 2rem;
+ }
+
+ .content-body--bottom p{
+    padding: 1rem;
+    transition: all .2s;
+    margin: 0;
+ }
+
+ .content-body--bottom p:hover{
+   background: rgba(128,128,128,.2);
  }
 
  @media only screen and (min-width: 578px){

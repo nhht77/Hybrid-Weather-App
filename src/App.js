@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+// import ReactModal from 'react-modal';
 
 import FirstView from "./component/FirstView/FirstView";
 import SecondView from "./component/SecondView/SecondView";
+
+
 
 class App extends Component {
   constructor(){
@@ -9,7 +12,8 @@ class App extends Component {
     this.state = {
       weathers: [],
       weather: null,
-      favorite: []
+      favorite: [],
+      isOpen: false
     }
   }
   
@@ -23,23 +27,22 @@ class App extends Component {
   
   addFavorite = fav => {
     const newState = {...this.state};
-    newState.favorite = [...newState.weathers, fav];
+    newState.favorite = [...newState.fav, fav];
     this.setState(newState);
     console.log(this.state);
   }
 
   onSave = weather => {
-    this.setState({weather})
+    this.setState({weather, isOpen:true })
+  }
+
+  onClose = () => {
+    this.setState({isOpen: false, weather:null});
   }
 
   render() {
-
     
     
-    let Second = () => 
-    <SecondView onBack={this.onBack} 
-                addFavorite={this.addFavorite} 
-                weather={this.state.weather}/>
 
     return (
     <div>
@@ -47,9 +50,17 @@ class App extends Component {
                     addWeather={this.addWeather} 
                     weathers={this.state.weathers}
           />
+        <SecondView isOpen={this.state.isOpen}
+                    onClose={this.onClose}
+                    weather={this.state.weather}
+                    />
     </div>
     );
   }
 }
 
 export default App;
+
+// <ReactModal style={customStyles} isOpen={this.state.isOpen}>
+      // <h1>Weather Info</h1>
+    // </ReactModal>
