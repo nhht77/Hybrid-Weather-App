@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to left, #77a1d3, #79cbca, #e684ae);
+ }
+
+
+ #root{
+     height:90vh;
+ }
+
+ #root >div{ 
+    height: 60vh;
+ }
+
+.App{
+  justify-content: space-around;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  align-content: space-around;
+}
+
+.App-header{
+  text-align: center;
+  color: antiquewhite;
+  text-shadow: 1px 1px 1px #e684ae,
+               1.5px 1.5px 1.5px #77a1d3,
+               2px 2px 2px #79cbca,
+               2.5px 2.5px 2.5px #e684ae,
+               3px 3px 3px #77a1d3,
+               3.5px 3.5px 3.5px #79cbca,
+               4px 4px 4px #e684ae,
+               4.5px 4.5px 4.5px #77a1d3,
+               5px 5px 5px #79cbca,
+               5.5px 5.5px 5.5px #e684ae,
+               6px 6px 6px #77a1d3;
+
+}
+
+.container{
+  width: 240px;
+  align-self: center;
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  background: transparent;
+  justify-content: space-around;
+  color:antiquewhite;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: .8rem 0;
+  margin: 1.2rem 0;
+  border-radius: 0.5rem;
+  border: 4px solid #2f3640;
+  outline: none;
+  transition: all .5s;
+}
+
+.item:hover{
+  background: linear-gradient(to left, #2f3640, #79cbca);
+  color: #2f3640;
+}
+
+.item:hover > .item-temp{
+  color:#94f0ee;
+}
+
+ 
+.search-btn {
+  position: absolute;
+  border: whitesmoke;
+  top: 85%;
+  left: 75%;
+  color: #e84118;
+  border-radius: 50%;
+  background: #2f3640;
+  transition: 0.4s;
+  color: white;
+  cursor: pointer;
+  height: 4.2rem;
+  width: 4.2rem;
+  z-index:5;
+ }
+
+ .search-btn:hover{
+  background: white;
+  color: black;
+  box-shadow: -10px -10px 30px 4px rgba(250, 235, 215, .1),
+              -5px -5px 15px 2px rgba(250, 235, 215, .5),
+              5px 5px 15px 2px rgba(0,0,0,0.1),
+              10px 10px 30px 4px rgba(0,0,0,0.5);
+ }
+ 
+ .search-btn > i {
+  font-size: 30px;
+ }
+ 
+
+ .react-autosuggest__container{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+  z-index: 5;
+ }
+
+ .react-autosuggest__input{
+      border: none;
+      background: none;
+      outline: none;
+      float: left;
+      color: white;
+      font-size: 16px;
+      transition: 0.4s;
+      line-height: 40px;
+      font-weight: bold;
+      width: 240px;
+      padding: 0 6px;
+ }
+
+ .react-autosuggest__suggestions-container {
+      background: white;
+      margin: 3.5rem 2rem 0;
+      margin-left: 1rem;
+      border-radius: 4%;
+      overflow-y: scroll;
+ }
+ .react-autosuggest__suggestions-list{
+      list-style: none;
+      padding: .2rem .5rem 0;
+      box-sizing: border-box;
+ }
+
+ .react-autosuggest__suggestions-list>li{
+     margin-top: .5rem;
+     padding: .2rem
+ }
+
+ .react-autosuggest__suggestions-list>li:hover{
+      background:black;
+      color:  white;
+ }
+
+ @media only screen and (min-width: 578px){
+   .search-btn {
+        left: 25%;
+        border-radius: 0%;
+        width: 50%;
+    }
+
+ }
+
+
+@media only screen and (min-width: 978px){
+  .item {
+    padding: 0.8rem 1.2rem;
+  }
+}
