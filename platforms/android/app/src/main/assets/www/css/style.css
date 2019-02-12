@@ -223,12 +223,26 @@ body {
  }
 
  @media only screen and (min-width: 578px){
+
+    h1{
+      font-size: 4rem;
+    }
+
    .search-btn {
         left: 25%;
         border-radius: 0%;
         width: 50%;
     }
 
+    .react-autosuggest__container {
+      top: 30%;
+    }
+
+    .container {
+      width: 240px;
+      align-self: center;
+      margin-top: 6rem;
+  }
  }
 
 
