@@ -1,7 +1,7 @@
 const cacheName = 'v1';
 
-const cacheAssets = [,
-  '/'
+const cacheAssets = [
+  '/',
   'index.html',
   '/css/style.css',
   '/css/index.css',
