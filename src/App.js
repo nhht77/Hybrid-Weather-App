@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-// import ReactModal from 'react-modal';
-
 import FirstView from "./component/FirstView/FirstView";
 import SecondView from "./component/SecondView/SecondView";
-
-
 
 class App extends Component {
   constructor(){
@@ -30,9 +26,14 @@ class App extends Component {
       const newState = {...this.state};
       newState.favorite = [...newState.favorite, fav];
       this.setState(newState);
-      console.log(this.state);
-      console.log(fav);
+      localStorage.setItem("weather", fav);
+      localStorage.setItem("favorite", JSON.stringify(newState.favorite));
     }
+  }
+
+  getFavorite = fav => {
+    const newState = {...this.state};
+    newState.favorite = [...newState.favorite, fav];
   }
 
   onSave = weather => {
@@ -44,13 +45,12 @@ class App extends Component {
   }
 
   render() {
-    
-    
-
     return (
     <div>
         <FirstView onSave={this.onSave} 
                     addWeather={this.addWeather} 
+                    getFavorite={this.getFavorite} 
+                    adddFavorite={this.adddFavorite} 
                     weathers={this.state.weathers}
                     favorite={this.state.favorite}
           />

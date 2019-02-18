@@ -5,9 +5,7 @@ export class FavoriteItem extends Component {
   
 
   onClick = name => {
-      console.log(name);
       getWeather(name).then( (data) => {
-        console.log(data);
         this.props.onSave(data);
       });
   }
